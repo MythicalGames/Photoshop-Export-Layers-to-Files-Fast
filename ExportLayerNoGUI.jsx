@@ -168,8 +168,8 @@ var selectedLayerCount = 0;
 //
 // Entry point
 //
-var outputArgument = arguments[0];
-// var outputArgument = "/Users/jedlankitus/Library/Application\ Support/MythicalGames/MythicalStudio/AssetPipeline/Build/Blankos/Intermediate/Loose/Textures/Jed/";
+// var outputArgument = arguments[0];
+var outputArgument = "/Users/jedlankitus/Library/Application\ Support/MythicalGames/MythicalStudio/AssetPipeline/Build/Blankos/Intermediate/Loose/Textures/Jed/";
 bootstrap(outputArgument);
 
 //
@@ -852,6 +852,8 @@ function convertFilenameToBlankoFormat(fileName, localFolders) {
     fileName = fileName.replace(".psd", "");
     fileName = prefs.filePath + "/" + fileName;
     fileName = fileName.replace(" copy", "");
+    fileName = fileName.replace("-", "_");
+    // fileName = fileName.replace(/\s/g, '_')
     return fileName.toLowerCase();
 }
 
@@ -1195,7 +1197,7 @@ function showDialog() {
     };
 
     dlg.funcArea.content.grpNaming.radioHyphen.onClick = function () {
-        prefs.delimiter = '-';
+        prefs.delimiter = '_';
     };
 
     // trimming
